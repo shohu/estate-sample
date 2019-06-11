@@ -1,0 +1,61 @@
+@layout('layouts.app')
+
+@section('content')
+  <div>
+    <div class="row">
+      <div class="col-lg-8 col-md-7 col-sm-6">
+          <h2>Create Estate</h2>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    @include('common.errors')
+    <form action="/estates/create" method="POST" class="form-horizontal">
+      {{ csrfField() }}
+      <fieldset>
+        <div class="form-group">
+            <legend>Estate code</legend>
+            <input type="text" class="form-control" name="code" id="estatecode" placeholder="Enter code">
+            <small class="form-text text-muted">Unique estate code</small>
+        </div>
+        <div class="form-group">
+            <legend>Onwer code</legend>
+            <input type="text" class="form-control" name="ownercode" id="ownercode" placeholder="Enter owner code">
+            <small class="form-text text-muted">Buyer(owner) code</small>
+        </div>
+        <div class="form-group">
+            <legend>Name</legend>
+            <input type="text" class="form-control" name="name" id="estatename" placeholder="Enter estate name">
+            <small class="form-text text-muted">Estate name</small>
+        </div>
+        <div class="form-group">
+            <legend>Category</legend>
+            <input type="text" class="form-control" name="category" id="category" placeholder="Enter estate category">
+            <small class="form-text text-muted">Estate category</small>
+        </div>
+        <div class="form-group">
+            <legend>Price</legend>
+            <input type="text" class="form-control" name="price" id="price" placeholder="Enter estate price">
+            <small class="form-text text-muted">Estate price</small>
+        </div>
+        <div class="form-group">
+            <legend>Unit</legend>
+            <input type="text" class="form-control" name="unit" id="unit" placeholder="Enter estate unit">
+            <small class="form-text text-muted">Estate unit</small>
+        </div>
+        <div class="form-group">
+            <legend>Devide term</legend>
+            <input type="text" class="form-control" name="devideTerm" id="devideTerm" placeholder="Enter estate devide term">
+            <small class="form-text text-muted">Estate devide term</small>
+        </div>
+        <div class="form-group">
+            <legend>Established date</legend>
+            <input type="text" class="form-control" name="establishedAt" id="establishedAt" placeholder="Enter estate established date">
+            <small class="form-text text-muted">Estate established date</small>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </fieldset>
+    </form>
+  </div>
+@endsection

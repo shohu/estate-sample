@@ -1,0 +1,7 @@
+@if(hasErrorFor('name'))
+  <div>
+    <strong>おや？何かがおかしいようです！</strong>
+    <br><br>
+    <p>{{ getErrorFor('name') }}</p>
+  </div>
+@endif

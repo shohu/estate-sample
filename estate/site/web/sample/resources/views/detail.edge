@@ -1,0 +1,67 @@
+@layout('layouts.app')
+
+@section('content')
+  <div>
+    <div class="row">
+      <div class="col-lg-8 col-md-7 col-sm-6">
+          <h2>Estate Detail</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <h2 class="display-4">{{ estate.name }}</h2>
+    <hr class="my-4">
+    <ul class="list-group">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Code
+        <p class="text-primary">{{ estate.code }}</p>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        category
+        <p class="text-primary">{{ estate.category }}</p>
+      </li>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        Price
+        <p class="text-primary">{{ estate.price }}</p>
+      </li>
+    </ul>
+  </div>
+
+<div class="bs-docs-section">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-header">
+          <h2>Histories</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Owner</th>
+        </tr>
+      </thead>
+      <tbody>
+        @each((owners, purchasedAt) in estate.histories)
+        <tr>
+          <th scope="row">{{ purchasedAt }}</th>
+          <td>
+            @if(owners.length > 0)
+              @each(owner in owners)
+                @if(!$loop.first)
+                  ,
+                @endif
+                {{ owner.ownercode }} : {{ owner.amount }}
+              @endeach
+            @endif
+          </td>
+        </tr>
+        @endeach
+      </tbody>
+    </div>
+  </div>
+</div>
+@endsection
